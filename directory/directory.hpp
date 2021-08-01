@@ -1,19 +1,33 @@
-#include <synapse/disk/disk_object.hpp>
+#include <disk/file/file.hpp>
+#include <list>
 
-#include <iostream>
-#include <string>
+namespace io   {
+namespace disk {
 
-namespace synapse
-{
-namespace disk
-{
     class directory
     {
     public:
-        directory(std::string dir_path);
+        using directory_handle_t = DIR*  ;
+        using directory_entry_t  = dirent;
+    public:
+        directory(std::string dir_path) : directory_path(std::move(dir_path)) { this->open(directory_path); }
+        directory()                     { }
+    
+    public:
+        bool open  (std::string dir_path);
+        bool close ();
 
-    private:
+    public:
+        void               update     ();
+        const std::string& operator[] (uint32_t it) { return directory_list[it % directory_list.size()]; }
 
-    }
+    protected:
+        std::string            directory_path  ;
+        std::list<std::string> directory_list  ;
+    
+    protected:
+        directory_handle_t     directory_handle;
+        directory_entry_t      directory_entry ;
+    };
 }
 }
