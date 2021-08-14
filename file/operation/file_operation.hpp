@@ -3,17 +3,11 @@
 
 namespace file {
 
-namespace mode 
-{
-
-}
-    int operator| (access_mode l, access_mode r) { return (int)l | (int)r; }
-
     template <typename file_data_t, typename file_type_t>
     class file_operation
     {
     public:
-        static typename file_type_t::hanldle_t     open (std::string& file_name, typename file_type_t::open_mode_t file_open, open_mode file_open);
+        static typename file_type_t::hanldle_t     open (std::string&, typename file_type_t::open_mode_t);
         static typename bool                       close(file_type_t::handle_t file_handle)                                                       { return ::close(file_handle); }
 
     public:
@@ -33,12 +27,12 @@ namespace mode
 }
 
 template <typename file_data_t, typename file_type_t>
-typename file_type_t::hanldle_t file::file_operation<file_data_t, file_type_t>::open (std::string& file_name, typename file_type_t::open_mode_t file_open, open_mode file_open)
+typename file_type_t::hanldle_t file::file_operation<file_data_t, file_type_t>::open (std::string& file_name, typename file_type_t::open_mode_t file_mode)
 {
-    if(file_open == open_mode::open)
-        return ::open(file_name.c_str(), file_access);
+    if(file_mode & mode::create)
+        return ::open(file_name.c_str(), file_mode, 0666);
     else
-        return ::open(file_name.c_str(), file_access | O_CREAT, 0666);
+        return ::open(file_name.c_str(), file_mode);
 }
 
 template <typename file_data_t, typename file_type_t>

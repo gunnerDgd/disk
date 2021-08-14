@@ -2,6 +2,22 @@
 #include <fcntl.h>
 
 namespace file {
+
+    enum mode
+    {
+        create = O_CREAT,
+        open   = 0,
+
+        read   = O_RDONLY,
+        write  = O_WRONLY,
+        all    = O_RDWR
+    };
+
+    int  operator|  (mode l, mode r) { return (int)l  | (int)r; }
+    int  operator&  (mode l, mode r) { return (int)l  & (int)r; }
+    int  operator^  (mode l, mode r) { return (int)l  ^ (int)r; }
+    bool operator== (int  l, mode r) { return      l == (int)r;}
+
     class file_type
     {
     public:
@@ -14,10 +30,5 @@ namespace file {
     public:
         static constexpr output_size_t invalid_output_size = -1;
         static constexpr handle_t      invalid_handle      = -1;
-
-    public:
-        static constexpr open_mode_t   read  = O_RDONLY    ;
-        static constexpr open_mode_t   write = O_WRONLY    ;
-        static constexpr open_mode_t   all   = read | write;
     };
 }
