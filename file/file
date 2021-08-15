@@ -1,0 +1,8 @@
+#include <disk/file/file.hpp>
+#include <disk/file/traits/file_traits.hpp>
+
+namespace file {
+
+    using file  = file_base<>;
+    using wfile = file_base<wchar_t>;
+}

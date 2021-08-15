@@ -2,22 +2,6 @@
 #include <fcntl.h>
 
 namespace file {
-
-    enum mode
-    {
-        create = O_CREAT,
-        open   = 0,
-
-        read   = O_RDONLY,
-        write  = O_WRONLY,
-        all    = O_RDWR
-    };
-
-    int  operator|  (mode l, mode r) { return (int)l  | (int)r; }
-    int  operator&  (mode l, mode r) { return (int)l  & (int)r; }
-    int  operator^  (mode l, mode r) { return (int)l  ^ (int)r; }
-    bool operator== (int  l, mode r) { return      l == (int)r;}
-
     class file_type
     {
     public:
