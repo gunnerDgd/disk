@@ -19,9 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\include\disk\handle\file\file_nonblock.hpp" />
     <ClInclude Include="..\..\..\..\..\include\disk\io_system\basic_reader.hpp" />
     <ClInclude Include="..\..\..\..\..\include\disk\io_system\basic_writer.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\disk\io_system\forward.hpp" />
+    <ClInclude Include="..\..\..\..\..\include\disk\io_system\queueing\ring_queue.hpp" />
     <ClInclude Include="..\..\..\..\..\include\disk\io_system\traits\reader_traits.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\source\handle\file_nonblock.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -132,6 +138,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>

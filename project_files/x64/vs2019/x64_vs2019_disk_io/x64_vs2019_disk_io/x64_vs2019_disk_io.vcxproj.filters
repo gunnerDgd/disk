@@ -16,6 +16,15 @@
     <Filter Include="Header Files\traits">
       <UniqueIdentifier>{2e910c92-a291-465a-a33e-c2876de66454}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\handle">
+      <UniqueIdentifier>{c10195e8-c34a-4109-86b1-b125dfad5131}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\handle">
+      <UniqueIdentifier>{92318315-94d0-497b-bb16-50c547ae99c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\queueing">
+      <UniqueIdentifier>{8aab6c4d-a778-4410-bf3e-b05000ab8346}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\include\disk\io_system\basic_reader.hpp">
@@ -27,5 +36,19 @@
     <ClInclude Include="..\..\..\..\..\include\disk\io_system\traits\reader_traits.hpp">
       <Filter>Header Files\traits</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\disk\handle\file\file_nonblock.hpp">
+      <Filter>Header Files\handle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\disk\io_system\forward.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\include\disk\io_system\queueing\ring_queue.hpp">
+      <Filter>Header Files\queueing</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\source\handle\file_nonblock.cpp">
+      <Filter>Source Files\handle</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
